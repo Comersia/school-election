@@ -1,0 +1,9 @@
+{% extends 'election/base.html' %} %nbsp;
+{% block content %}
+<h2>Вход в аккаунт</h2>
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Вход</button>
+</form>
+{% endblock %}

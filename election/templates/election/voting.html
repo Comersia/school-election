@@ -1,0 +1,17 @@
+{% extends 'election/base.html' %}
+{% block content %}
+<h1>Голосование</h1>
+{% if user.is_authenticated %}
+	<h3> {{ election.name }}</h3>
+	{% if not user.profile.is_voted %}
+		<form method="POST" class="post-form">{% csrf_token%}
+			{{ form.as_p }}
+			<button type="submit" class="save btn btn-default">Проголосовать</button>
+		</form>
+	{% else %}
+		<div>Вы уже проголосовали</div>
+	{% endif %}
+{% else %}
+	<div>Вы не вошли в свой аккаунт</div>
+{% endif %}
+{% endblock %}

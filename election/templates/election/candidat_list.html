@@ -1,0 +1,9 @@
+{% extends 'election/base.html' %}
+{% block content %}
+<h2>Список кандидатов</h2>
+<ul>
+{% for candidat in object_list %}
+	<li><a href="{% url 'election:candidat_detail' candidat.id %}">{{ candidat }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
